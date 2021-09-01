@@ -1,9 +1,12 @@
 const yargs = require('yargs')
 const http = require('http')
 const fs = require('fs')
-
-
+const Jimp = require('jimp')
 const pass = 123
+
+
+
+
 
 const argv = yargs
     .command(
@@ -45,3 +48,39 @@ const argv = yargs
         }
     )
     .help().argv
+
+
+
+
+
+
+
+
+
+
+    //esto hay q agregarlo 
+/*
+    http
+    .createServer((req, res) => {
+    
+        Jimp.read("link", (err, imagen) => {
+            imagen
+                .resize(350, Jimp.AUTO)
+                .grayscale()
+                .quality(60)
+                .writeAsync('img.png')
+                .then(() => {
+                
+                    fs.readFile('img.png', (err, Imagen) => {
+                        res.writeHead(200, {
+                            'Content-Type': 'image/jpeg'
+                        })
+                        res.end(Imagen)
+                })
+            })
+        })
+    })
+    .listen(3000, () => console.log('Server on'))
+
+
+*/
